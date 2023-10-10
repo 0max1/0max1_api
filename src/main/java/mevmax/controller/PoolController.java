@@ -22,7 +22,7 @@ public class PoolController {
     @Resource
     PoolMapper poolMapper;
 
-    @GetMapping
+    @RequestMapping({"", "/"})
     public ResponseEntity<Map<String, Object>> getAllPools() {
         List<Pool> pools = poolMapper.findAll();
         Map<String, Object> response = new HashMap<>();

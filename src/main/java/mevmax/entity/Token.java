@@ -10,8 +10,9 @@ import java.math.BigDecimal;
 public class Token {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long token_id;
     private String token_address;
+//    private Long token_id;
+//    private String token_address;
     private String token_symbol;
     private Integer decimal;
     private Integer num_holders;

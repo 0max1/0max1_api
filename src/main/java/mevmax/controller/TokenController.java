@@ -20,8 +20,9 @@ public class TokenController {
     @Resource
     TokenMapper tokenMapper;
 
-    @GetMapping
+    @RequestMapping({"", "/"})
     public ResponseEntity<Map<String, Object>> getAllTokens() {
+        System.out.println("Check out");
         List<Token> tokens = tokenMapper.findAllTokens();
         Map<String, Object> response = new HashMap<>();
         response.put("status", HttpStatus.OK.value());
@@ -47,21 +48,21 @@ public class TokenController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/name/{tokenName}")
-    public ResponseEntity<Map<String, Object>> getTokenByName(@PathVariable String tokenName) {
-        List<Token> token = tokenMapper.findTokenByName(tokenName);
-        if (token.isEmpty()) {
-            Map<String, Object> response = new HashMap<>();
-            response.put("status", HttpStatus.NOT_FOUND.value());
-            response.put("message", "Token not found");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("status", HttpStatus.OK.value());
-        response.put("message", "Success");
-        response.put("token", token);
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/name/{tokenName}")
+//    public ResponseEntity<Map<String, Object>> getTokenByName(@PathVariable String tokenName) {
+//        List<Token> token = tokenMapper.findTokenByName(tokenName);
+//        if (token.isEmpty()) {
+//            Map<String, Object> response = new HashMap<>();
+//            response.put("status", HttpStatus.NOT_FOUND.value());
+//            response.put("message", "Token not found");
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+//        }
+//
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("status", HttpStatus.OK.value());
+//        response.put("message", "Success");
+//        response.put("token", token);
+//        return ResponseEntity.ok(response);
+//    }
 }
 
