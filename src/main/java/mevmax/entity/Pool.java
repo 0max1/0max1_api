@@ -10,10 +10,9 @@ import java.math.BigDecimal;
 public class Pool {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pool_id;
     private String pool_address;
-    private Integer protocol_name;
-    private Integer blockchain_name;
+    private String protocol_name;
+    private String blockchain_name;
     private BigDecimal tvl;
     private BigDecimal fee;
     private Boolean pool_flag;

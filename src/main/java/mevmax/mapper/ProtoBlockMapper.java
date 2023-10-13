@@ -14,5 +14,5 @@ public interface ProtoBlockMapper {
     @Select("SELECT * FROM \"BlockChain\"")
     List<BlockChain> findAllBlockChains();
     @Select("SELECT SUM(tvl) FROM \"Pool\"")
-    long findTotalTvl();
+    double findTotalTvl();
 }
