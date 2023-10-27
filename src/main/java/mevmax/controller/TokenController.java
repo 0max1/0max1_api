@@ -22,7 +22,6 @@ public class TokenController {
 
     @RequestMapping({"", "/"})
     public ResponseEntity<Map<String, Object>> getAllTokens() {
-        System.out.println("Check out");
         List<Token> tokens = tokenMapper.findAllTokens();
         Map<String, Object> response = new HashMap<>();
         response.put("status", HttpStatus.OK.value());

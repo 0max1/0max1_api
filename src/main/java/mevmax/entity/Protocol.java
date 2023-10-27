@@ -10,5 +10,6 @@ import lombok.Data;
 @Data
 public class Protocol {
     @Id
+    private String factory_address;
     private String protocol_name;
 }

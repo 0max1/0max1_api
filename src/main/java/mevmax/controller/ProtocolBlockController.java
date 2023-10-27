@@ -7,6 +7,7 @@ import mevmax.mapper.ProtoBlockMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -49,6 +50,25 @@ public class ProtocolBlockController {
         response.put("status", HttpStatus.OK.value());
         response.put("message", "Success");
         response.put("total TVL", totalTvl);
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/protocols/factory/{factoryAddress}")
+    public ResponseEntity<Map<String, Object>> getProtocolByAddress(@PathVariable String factoryAddress){
+        List<Protocol> protocols = pbMapper.findProtocolByAddress(factoryAddress);
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", HttpStatus.OK.value());
+        response.put("message", "Success");
+        response.put("protocols", protocols);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/protocols/name/{protocolName}")
+    public ResponseEntity<Map<String, Object>> getProtocolByName(@PathVariable String protocolName){
+        List<Protocol> protocols = pbMapper.findProtocolByName(protocolName);
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", HttpStatus.OK.value());
+        response.put("message", "Success");
+        response.put("protocols", protocols);
         return ResponseEntity.ok(response);
     }
 }

@@ -34,14 +34,14 @@ public class PairController {
         if (pairs.isEmpty()) {
             Map<String, Object> response = new HashMap<>();
             response.put("status", HttpStatus.NOT_FOUND.value());
-            response.put("message", "Pool not found");
+            response.put("message", "Pair not found");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
         Map<String, Object> response = new HashMap<>();
         response.put("status", HttpStatus.OK.value());
         response.put("message", "Success");
-        response.put("pools", pairs);
+        response.put("pair", pairs);
         return ResponseEntity.ok(response);
     }
 
@@ -51,14 +51,14 @@ public class PairController {
         if (pairs.isEmpty()) {
             Map<String, Object> response = new HashMap<>();
             response.put("status", HttpStatus.NOT_FOUND.value());
-            response.put("message", "Pool not found");
+            response.put("message", "Pairs not found");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
         Map<String, Object> response = new HashMap<>();
         response.put("status", HttpStatus.OK.value());
         response.put("message", "Success");
-        response.put("pools", pairs);
+        response.put("pairs", pairs);
         return ResponseEntity.ok(response);
     }
 
